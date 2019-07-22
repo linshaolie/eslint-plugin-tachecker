@@ -1,0 +1,43 @@
+{
+    "name": "eslint-plugin-tachecker",
+    "version": "0.0.3",
+    "author": "linshaolie",
+    "description": "TA 埋点框架规则检验",
+    "main": "lib/index.js",
+    "scripts": {
+        "test": "npm run unit-test",
+        "coveralls": "cat ./reports/coverage/lcov.info | coveralls",
+        "unit-test": "istanbul cover --dir reports/coverage node_modules/mocha/bin/_mocha tests/lib/**/*.js"
+    },
+    "files": [
+        "README.md",
+        "LICENSE",
+        "lib"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/linshaolie/eslint-plugin-tachecker"
+    },
+    "homepage": "https://github.com/linshaolie/eslint-plugin-tachecker",
+    "bugs": "https://github.com/linshaolie/eslint-plugin-tachecker/issues",
+    "dependencies": {
+        "jsx-ast-utils": "^2.2.1",
+        "requireindex": "^1.2.0"
+    },
+    "devDependencies": {
+        "coveralls": "^3.0.5",
+        "eslint": "^6.1.0",
+        "istanbul": "^0.4.5",
+        "mocha": "^3.1.2"
+    },
+    "engines": {
+        "node": ">=4"
+    },
+    "keywords": [
+        "eslint",
+        "eslintplugin",
+        "eslint-plugin",
+        "TA"
+    ],
+    "license": "MIT"
+}
