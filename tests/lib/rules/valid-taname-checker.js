@@ -1,6 +1,6 @@
 /**
 * @fileoverview taName名称有效性检测
-* @author shaolie.lin
+* @author linshaolie
 */
 "use strict";
 

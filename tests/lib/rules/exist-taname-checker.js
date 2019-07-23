@@ -1,6 +1,6 @@
 /**
 * @fileoverview taName名称是否存在检测
-* @author 少烈 <shaolie>
+* @author linshaolie
 */
 
 "use strict";

@@ -1,11 +1,12 @@
 {
     "name": "eslint-plugin-tachecker",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "author": "linshaolie",
     "description": "TA 埋点框架规则检验",
     "main": "lib/index.js",
     "scripts": {
         "test": "npm run unit-test",
+        "test-file": "istanbul cover --dir reports/coverage node_modules/mocha/bin/_mocha",
         "coveralls": "cat ./reports/coverage/lcov.info | coveralls",
         "unit-test": "istanbul cover --dir reports/coverage node_modules/mocha/bin/_mocha tests/lib/**/*.js"
     },
