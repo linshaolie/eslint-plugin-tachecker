@@ -1,6 +1,6 @@
 {
     "name": "eslint-plugin-tachecker",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "author": "linshaolie",
     "description": "TA 埋点框架规则检验",
     "main": "lib/index.js",
