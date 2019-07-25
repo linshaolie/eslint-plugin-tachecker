@@ -26,10 +26,12 @@ You should also specify settings that will be shared across all the plugin rules
 "settings": {
     "tachecker": {
         "pragmas": ["TA", "TAComponents"],
-        "checkedComponents": ["Modal", {"name": "Switch", "funcName": "onValueChange"}]
+        "checkedComponents": ["Modal", {"name": "Switch", "funcName": "onValueChange"}],
+        "taComponents": []  
     }
 }
 ```
+**key 说明： `pragmas` 用于指定导入的 TA 组件源文件； `checkedComponents` 指定需要检测是否有taName属性的组件，数组元素可以是字符串，也可以是对象，如果是字符串则默认处理函数是`onPress`；`taComponents` 指定要检测`taName`的 TA 组件，格式和 `checkedComponents` 相同**
 
 ## Usage
 
