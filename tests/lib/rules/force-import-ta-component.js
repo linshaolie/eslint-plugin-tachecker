@@ -113,6 +113,13 @@ ruleTester.run("force-import-ta-component", rule, {
     invalid: [
         {
             code: 'import {TouchableWithoutFeedback} from \'react-native\';',
+            output: `\nimport { TouchableWithoutFeedback } from 'TA';`,
+            errors: [{message: '请使用TA下的TouchableWithoutFeedback组件'}]
+        },
+        {
+            code: 'import {TouchableWithoutFeedback, View} from \'react-native\';',
+            output: `import {View} from \'react-native\';
+import { TouchableWithoutFeedback } from 'TA';`,
             errors: [{message: '请使用TA下的TouchableWithoutFeedback组件'}]
         },
         {
@@ -124,25 +131,38 @@ ruleTester.run("force-import-ta-component", rule, {
             errors: [{message: '请使用TA下的TouchableWithoutFeedback组件'}]
         },
         {
+            code:`const {ABC, TouchableWithoutFeedback} = require('TouchableWithoutFeedback');`,
+            errors: [{message: '请使用TA下的TouchableWithoutFeedback组件'}]
+        },
+        {
             code: `const {TouchableWithoutFeedback} = require('react-native');`,
+            output: `\nimport { TouchableWithoutFeedback } from 'TA';`,
             errors: [{message: '请使用TA下的TouchableWithoutFeedback组件'}]
         },
         {
             code: `const {TouchableOpacity, TouchableWithoutFeedback} = require('react-native');`,
+            output: `\nimport { TouchableOpacity, TouchableWithoutFeedback } from 'TA';`,
             errors: [
-                {message: '请使用TA下的TouchableOpacity组件'},
-                {message: '请使用TA下的TouchableWithoutFeedback组件'}
+                {message: '请使用TA下的TouchableOpacity、TouchableWithoutFeedback组件'}
+            ]
+        },
+        {
+            code: `const {TouchableOpacity, View, TouchableWithoutFeedback} = require('react-native');`,
+            output: `const {View} = require('react-native');\nimport { TouchableOpacity, TouchableWithoutFeedback } from 'TA';`,
+            errors: [
+                {message: '请使用TA下的TouchableOpacity、TouchableWithoutFeedback组件'}
             ]
         },
         {
             code: `import {TouchableOpacity} from 'react-native';`,
+            output: `\nimport { TouchableOpacity } from 'TA';`,
             errors: [{message: '请使用TA下的TouchableOpacity组件'}]
         },
         {
             code: `import {TouchableWithoutFeedback, TouchableOpacity} from 'react-native';`,
+            output: `\nimport { TouchableOpacity, TouchableWithoutFeedback } from 'TA';`,
             errors: [
-                {message: '请使用TA下的TouchableWithoutFeedback组件'},
-                {message: '请使用TA下的TouchableOpacity组件'}
+                {message: '请使用TA下的TouchableOpacity、TouchableWithoutFeedback组件'}
             ]
         }
     ]
